@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 if [ ! "$(ls -A /opt/magic_mirror/modules)" ]; then
