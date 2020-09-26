@@ -8,11 +8,11 @@ if [ "$(docker manifest inspect fazenda/docker-magicmirror:"${latest_release}" >
   --progress plain \
   --platform=linux/amd64,linux/arm64,linux/arm/v7 ${1} \
   --build-arg branch="${latest_release}" \
-  -t fazenda/docker-magicmirror:"${latest_release}" \
-  -t fazenda/docker-magicmirror:latest .
+  --push -t fazenda/docker-magicmirror:"${latest_release}" \
+  --push -t fazenda/docker-magicmirror:latest .
 fi
 
 docker buildx build --progress plain \
 --platform=linux/amd64,linux/arm64,linux/arm/v7 ${1} \
 --build-arg branch=develop \
--t fazenda/docker-magicmirror:develop .
+--push -t fazenda/docker-magicmirror:develop .
